@@ -6,6 +6,7 @@
 package populateDb;
 
 import domein.Land;
+import domein.Locatie;
 import domein.Werelddeel;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +33,7 @@ public class DbInitializer {
         //INITIALIZEREN VAN DE DAO'S
         GenericDaoJpa werelddeeldao = new GenericDaoJpa(Werelddeel.class);
         GenericDaoJpa landdao = new GenericDaoJpa(Land.class);
+        GenericDaoJpa locatiedao = new GenericDaoJpa(Locatie.class);
 
         //WERELDDELEN
         Werelddeel afrika = new Werelddeel("Afrika");
@@ -57,12 +59,19 @@ public class DbInitializer {
         landenEuropa = new HashSet<Land>((Arrays.asList(
                 belgie, andorra, albanie, oostenrijk, bulgarije) ));
     
+        //LOCATIE
+        Locatie ukkel = new Locatie("Ukkel");
+     
+        
 
         //TOEVOEGING VAN COLLECTIONS
         for(Land land:landenEuropa){
             land.setWerelddeel(europa);
         }
-//        europa.setLanden(landenEuropa);
+        
+        /*tijdelijk moet lijst worden*/
+           ukkel.setLand(belgie);
+
 
         //START INITIALIZE
         werelddeeldao.startTransaction();
@@ -76,6 +85,8 @@ public class DbInitializer {
           for (Werelddeel werelddeel : werelddelen) {
             werelddeeldao.insert(werelddeel);
         }
+          
+          locatiedao.insert(ukkel);
 
 //      
         werelddeeldao.commitTransaction();
