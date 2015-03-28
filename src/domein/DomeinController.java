@@ -1,4 +1,4 @@
-package domain;
+package domein;
 
 import domein.Werelddeel;
 import java.util.List;
@@ -15,6 +15,7 @@ public class DomeinController {
     private List<Werelddeel> werelddeelList;
 //    private GenericDaoJpa<Winkel> winkelRepo;
     private WerelddeelDaoJpa  bierRepo;
+    
     
     public DomeinController() {
         this(true);

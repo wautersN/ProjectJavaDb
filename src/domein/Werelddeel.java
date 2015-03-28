@@ -3,10 +3,13 @@ package domein;
 
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +22,8 @@ public class Werelddeel implements Serializable {
 
     private String werelddeelNaam;
     
-  //  @ManyToOne
-  //  private Collection<Land> landen;
+    @OneToMany
+    private Collection<Land> landen;
     
     protected Werelddeel(){}
     
@@ -46,11 +49,11 @@ public class Werelddeel implements Serializable {
         this.werelddeelNaam = werelddeelNaam;
     }
 
-//    public Collection<Land> getLanden() {
-//        return landen;
-//    }
-//
-//    public void setLanden(Collection<Land> landen) {
-//        this.landen = landen;
-//    }  
+    public Collection<Land> getLanden() {
+        return landen;
+    }
+
+    public void setLanden(Collection<Land> landen) {
+        this.landen = landen;
+    }  
 }

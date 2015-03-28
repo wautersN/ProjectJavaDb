@@ -5,7 +5,7 @@
  */
 package ui;
 
-import domain.DomeinController;
+import domein.DomeinController;
 
 /**
  *

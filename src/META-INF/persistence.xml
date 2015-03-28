@@ -3,6 +3,7 @@
   <persistence-unit name="ProjectJavaDBPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>domein.Werelddeel</class>
+    <class>domein.Land</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/StommeDatabase"/>
       <property name="javax.persistence.jdbc.user" value="niels"/>

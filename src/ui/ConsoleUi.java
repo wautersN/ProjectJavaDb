@@ -1,6 +1,6 @@
 package ui;
 
-import domain.DomeinController;
+import domein.DomeinController;
 import java.util.Scanner;
 
 public class ConsoleUi {
