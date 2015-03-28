@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import repository.GenericDaoJpa;
-import repository.WerelddeelDaoJpa;
 
 /**
  *
@@ -21,7 +20,11 @@ public class DbInitializer {
 
     public void run() {
 
-        //        WerelddeelDaoJpa werelddeeldao = new WerelddeelDaoJpa();
+        /*##########################################
+         Andere manier van initializer staat hier onder 
+         --> wordt gebruikt voor zelfgemaakte mapper die erft van GenericDao
+         WerelddeelDaoJpa werelddeeldao = new WerelddeelDaoJpa();
+         ############################################*/
         //INITIALIZEREN VAN DE DAO'S
         GenericDaoJpa werelddeeldao = new GenericDaoJpa(Werelddeel.class);
         GenericDaoJpa landdao = new GenericDaoJpa(Land.class);
@@ -29,13 +32,25 @@ public class DbInitializer {
         //WERELDDELEN
         Werelddeel afrika = new Werelddeel("Afrika");
         Werelddeel europa = new Werelddeel("Europa");
+        Werelddeel azie = new Werelddeel("Azië");
+        Werelddeel noordAmerika = new Werelddeel("Noord-Amerika");
+        Werelddeel zuidAmerika = new Werelddeel("Zuid-Amerika");
+        Werelddeel oceanie = new Werelddeel("Oceanië");
+        Werelddeel antartica = new Werelddeel("Antartica");
 
-        //LANDEN
+        Collection<Werelddeel> werelddelen = new ArrayList<>(Arrays.asList(
+                afrika, europa, azie, noordAmerika, zuidAmerika, oceanie, antartica
+        ));
+
+        //LANDEN Europa
         Land belgie = new Land("Belgie");
-
-        //COLLECTIONS
-        Collection<Werelddeel> werelddelen = new ArrayList<>(Arrays.asList(afrika,europa));
-        Collection<Land> landenEuropa = new ArrayList<>(Arrays.asList(belgie));
+        Land andorra = new Land("Andorra");
+        Land albanie = new Land("Albanie");
+        Land oostenrijk = new Land("Oostenrijk");
+        Land bulgarije = new Land("Bulgarije");
+        Collection<Land> landenEuropa = new ArrayList<>(Arrays.asList(
+                belgie, andorra, albanie, oostenrijk, bulgarije
+        ));
 
         //TOEVOEGING VAN COLLECTIONS
         europa.setLanden(landenEuropa);
@@ -43,8 +58,7 @@ public class DbInitializer {
         //START INITIALIZE
         werelddeeldao.startTransaction();
 
-
-        for(Werelddeel werelddeel:werelddelen){
+        for (Werelddeel werelddeel : werelddelen) {
             werelddeeldao.insert(werelddeel);
         }
 
