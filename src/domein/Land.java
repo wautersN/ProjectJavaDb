@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +17,18 @@ public class Land implements Serializable {
     private int landId;
     
     private String landNaam;
+    
+    @ManyToOne
+    private Werelddeel werelddeel;
+
+    public Werelddeel getWerelddeel() {
+        return werelddeel;
+    }
+
+    public void setWerelddeel(Werelddeel werelddeel) {
+        this.werelddeel = werelddeel;
+    }
+    
     
 //    @ManyToOne
 //    private Collection<Locatie> locaties;

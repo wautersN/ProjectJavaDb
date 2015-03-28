@@ -10,6 +10,10 @@ import domein.Werelddeel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import repository.GenericDaoJpa;
 
 /**
@@ -38,7 +42,7 @@ public class DbInitializer {
         Werelddeel oceanie = new Werelddeel("Oceanië");
         Werelddeel antartica = new Werelddeel("Antartica");
 
-        Collection<Werelddeel> werelddelen = new ArrayList<>(Arrays.asList(
+        Set<Werelddeel> werelddelen = new HashSet<>(Arrays.asList(
                 afrika, europa, azie, noordAmerika, zuidAmerika, oceanie, antartica
         ));
 
@@ -48,22 +52,29 @@ public class DbInitializer {
         Land albanie = new Land("Albanie");
         Land oostenrijk = new Land("Oostenrijk");
         Land bulgarije = new Land("Bulgarije");
-        Collection<Land> landenEuropa = new ArrayList<>(Arrays.asList(
-                belgie, andorra, albanie, oostenrijk, bulgarije
-        ));
+        
+        Set<Land> landenEuropa;
+        landenEuropa = new HashSet<Land>((Arrays.asList(
+                belgie, andorra, albanie, oostenrijk, bulgarije) ));
+    
 
         //TOEVOEGING VAN COLLECTIONS
-        europa.setLanden(landenEuropa);
+        for(Land land:landenEuropa){
+            land.setWerelddeel(europa);
+        }
+//        europa.setLanden(landenEuropa);
 
         //START INITIALIZE
         werelddeeldao.startTransaction();
 
-        for (Werelddeel werelddeel : werelddelen) {
-            werelddeeldao.insert(werelddeel);
-        }
+      
 
         for (Land land : landenEuropa) {
             landdao.insert(land);
+        }
+        
+          for (Werelddeel werelddeel : werelddelen) {
+            werelddeeldao.insert(werelddeel);
         }
 
 //      

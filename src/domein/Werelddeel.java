@@ -4,6 +4,8 @@ package domein;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +24,8 @@ public class Werelddeel implements Serializable {
 
     private String werelddeelNaam;
     
-    @OneToMany
-    private Collection<Land> landen;
+   
+ 
     
     protected Werelddeel(){}
     
@@ -48,12 +50,15 @@ public class Werelddeel implements Serializable {
     public void setWerelddeelNaam(String werelddeelNaam) {
         this.werelddeelNaam = werelddeelNaam;
     }
+    
+    
+    
 
-    public Collection<Land> getLanden() {
-        return landen;
-    }
-
-    public void setLanden(Collection<Land> landen) {
-        this.landen = landen;
-    }  
+//    public Set<Land> getLanden() {
+//        return landen;
+//    }
+//
+//    public void setLanden(Set<Land> landen) {
+//        this.landen = landen;
+//    }  
 }
