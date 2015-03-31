@@ -1,4 +1,4 @@
-package repository;
+package persistentie;
 
 import domein.Werelddeel;
 import javax.persistence.EntityNotFoundException;

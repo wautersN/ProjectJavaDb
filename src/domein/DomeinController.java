@@ -6,9 +6,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.persistence.EntityNotFoundException;
-import populateDb.DbInitializer;
-import repository.GenericDaoJpa;
-import repository.WerelddeelDaoJpa;
+import persistentie.DbInitializer;
+import persistentie.GenericDaoJpa;
+import persistentie.WerelddeelDaoJpa;
 
 
 public class DomeinController {

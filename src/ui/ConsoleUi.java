@@ -2,6 +2,7 @@ package ui;
 
 import domein.DomeinController;
 import java.util.Scanner;
+import persistentie.GenericDaoJpa;
 
 public class ConsoleUi {
     private final DomeinController domeinController;
@@ -17,6 +18,8 @@ public class ConsoleUi {
 
     private void doStandardJob() {
         System.out.println("Actief");
+       
+        System.out.println("gelukt");
        
     }
     

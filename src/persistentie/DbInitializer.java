@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package populateDb;
+package persistentie;
 
 import domein.Land;
 import domein.Locatie;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import repository.GenericDaoJpa;
+import persistentie.GenericDaoJpa;
 
 /**
  *
@@ -54,10 +54,11 @@ public class DbInitializer {
         Land albanie = new Land("Albanie");
         Land oostenrijk = new Land("Oostenrijk");
         Land bulgarije = new Land("Bulgarije");
+        Land zwitserland= new Land("Zwitserland");
         
         Set<Land> landenEuropa;
         landenEuropa = new HashSet<Land>((Arrays.asList(
-                belgie, andorra, albanie, oostenrijk, bulgarije) ));
+                belgie, andorra, albanie, oostenrijk, bulgarije,zwitserland) ));
     
         //LOCATIE
         Locatie ukkel = new Locatie("Ukkel");
